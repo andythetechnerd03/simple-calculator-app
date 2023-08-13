@@ -10,8 +10,37 @@ const getStyleName = btn => {
         '/': 'opt',
         '+': 'opt',
         '-': 'opt',
+        "⌫": 'opt',
     }
     return classNames[btn]
+}
+
+const getVariant = btn => {
+    const classNames = {
+        '=': 'contained',
+        'x': 'contained',
+        '/': 'contained',
+        '+': 'contained',
+        '-': 'contained',
+        "+/-": 'contained',
+        "%": "contained",
+        "C": "contained",
+    }
+    return classNames[btn] || 'outlined'
+}
+
+const getColor = btn => {
+    const classNames = {
+        '=': 'success',
+        'x': 'secondary',
+        '/': 'secondary',
+        '+': 'secondary',
+        '-': 'secondary',
+        "+/-": 'info',
+        "%": "info",
+        "C": "info"
+    }
+    return classNames[btn] || 'primary'
 }
 
 
@@ -89,6 +118,14 @@ const NewButton = ({value}) => {
     })
   }
 
+  const backspaceClick = () => {
+    setCalc({
+      num: calc.num ? calc.num.toString().slice(0, -1) : 0,
+      res: calc.res ? calc.res.toString().slice(0, -1) : 0,
+      sign: ''
+    })
+  }
+
   const handleBtnClick = () => {
     
     const results = {
@@ -100,7 +137,8 @@ const NewButton = ({value}) => {
       '+': signClick,
       '=': equalsClick,
       '%': persenClick,
-      '+-': invertClick
+      '+/-': invertClick,
+      '⌫': backspaceClick
     }
     if(results[value]) {
       return results[value]()
@@ -111,7 +149,13 @@ const NewButton = ({value}) => {
 
 
   return (
-    <Button onClick={handleBtnClick} className={`${getStyleName(value)} button`}>{value}</Button>
+    <Button onClick={handleBtnClick}
+            className={`${getStyleName(value)} button`}
+            size='large'
+            variant={getVariant(value)}
+            color={getColor(value)}
+    >{value}
+    </Button>
   )
 }
 
