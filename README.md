@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# Simple Calculator App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).</br>
+Homework for Cinnamon AI.
+
+## Screenshots
+![image](https://github.com/andythetechnerd03/simple-calculator-app/assets/101492362/7ad6ba23-e889-49c9-b0b6-9ad6382abae7)
+
+
+## Supported Functionalities
+- Add / Subtract / Product / Divide
+- Invert a number
+- Get the percentage
+- Support for float number
+
+
+## Installation
+- Clone the project ```git clone```
+- Make sure the Node Package Manager (npm) is installed
+- Install the dependencies ```npm install```
 
 ## Available Scripts
 
